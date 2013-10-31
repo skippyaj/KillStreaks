@@ -14,7 +14,7 @@ public class Main extends JavaPlugin implements Listener {
             }
             
             //no damage in creative
-            if(damager.isInCreative()){
+            if(damager.getGameMode()==GameMode.CREATIVE){
                 event.setCancelled(true);
             }
         }
@@ -22,10 +22,11 @@ public class Main extends JavaPlugin implements Listener {
     
     @EventHandler
     public void onPlace(BlockPlaceEvent event){
+        Player player = event,getPlayer();
         if(event.getBlockPlace().getType()==Material.OBSIDIAN){
-            if(!event.getPlayer().isInCreative()){
+            if(!player.getGameMode()==GameMode.CREATIVE){
                 event.setCancelled(true);
-                //activate special ability
+                player.setItemInHand(null);
             }
         }
     }
