@@ -56,7 +56,7 @@ public class Main extends JavaPlugin implements Listener {
         if(event.getKiller()!=null){
             Player killer = event.getEntity().getKiller();
             if(kills.contains(killer.getName)){
-                kills.put(killer.getName(), kills.get(killer.getName()+1);
+                kills.put(killer.getName(), kills.get(killer.getName()+1));
             }else{
                 kills.put(killer.getName(), 1);
             }
